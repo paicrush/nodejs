@@ -1,0 +1,43 @@
+<%- include('../includes/head.ejs') %> <%- include('../includes/navigation.ejs')
+%>
+
+<div id="content" class="site-content">
+    <div id="primary" class="content-area column full">
+        <main id="main" class="site-main" role="main">
+        <p class="woocommerce-result-count">
+             Showing 1–8 of 12 results
+        </p>
+        <form class="woocommerce-ordering" action="/category" method="POST">
+            <select id="client_id" name="orderby" class="orderby">
+                <option value="menu_order" selected="selected">ทั้งหมด</option>
+                <option value="2">หมวก</option>
+                <option value="1">เสื้อ</option>
+            </select>
+        </form>
+        <ul class="products">
+            <% if (prods.length > 0) { %> <% prods.map((product, index) => { %>
+            <li class="product">
+            <a href="<%- '/'+product._id%>">
+            <span class="onsale">Sale!</span>
+            <img src="<%- product.img%>" alt="">
+            <h3><%- product.product_name%></h3>
+            <span class="price"><span class="amount"><%- product.price%></span></span>
+            <form class="cart" method="post" enctype='multipart/form-data' action="/cart">   
+                <input type="hidden" name="product_name" value="<%- product.product_name%>"> 
+                <input type="hidden" name="amount" value="1"> 
+                <input type="hidden" name="price" value="<%- product.price%>">            							
+                <button type="submit" class="single_add_to_cart_button button alt">Add to cart</button>
+            </form>
+            </li>
+            <% }) %> <% } else { %>
+                <h3>don't have product</h3>
+            <% } %>
+        </ul>
+        </main>
+        <!-- #main -->
+    </div>
+    <!-- #primary -->
+</div>
+
+  <%- include('../includes/end.ejs') %>
+

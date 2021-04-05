@@ -1,0 +1,50 @@
+<%- include('../includes/head.ejs') %> <%- include('../includes/navigation.ejs')
+%>
+<div id="content" class="site-content">
+    <div id="primary" class="content-area column full">
+        <main id="main" class="site-main" role="main">
+        <div id="container">
+            
+            <div id="content" role="main">
+                <div itemscope itemtype="http://schema.org/Product" class="product">
+                    <div class="images">								
+                        <img src="<%- img%>" alt=""></a>
+                    </div>
+                    <div class="summary entry-summary">
+                        <h1 itemprop="name" class="product_title entry-title"><%- product_name%></h1>
+                        <div class="woocommerce-product-rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                            <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                            <a href="#reviews" class="woocommerce-review-link" rel="nofollow">(<span itemprop="reviewCount" class="count">2</span> customer reviews)</a>
+                        </div>
+                        <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                            <p class="price">
+                                <span class="amount"><%- price%></span>
+                            </p>
+                            
+                        </div>
+                        <div itemprop="description">
+                            <p>
+                                <%- detail%>
+                            </p>
+                        </div>
+                        <form class="cart" method="post" enctype='multipart/form-data'>
+                            <div class="quantity">
+                                <input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4"/>
+                                
+                            </div>									
+                            <button type="submit" class="single_add_to_cart_button button alt">Add to cart</button>
+                        </form>
+                    </div>             
+                </div>
+            </div>
+          
+        </div>
+        </main>
+        <!-- #main -->
+    </div>
+    <!-- #primary -->
+</div>
+
+
+
+  <%- include('../includes/end.ejs') %>
